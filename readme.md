@@ -1,0 +1,3 @@
+# Advent of Code
+
+Advent, (from Latin adventus, “coming”), in the Christian church calendar, the period of preparation for the celebration of the birth of Jesus Christ at Christmas and also of preparation for the Second Coming of Christ. In Western churches, Advent begins on the Sunday nearest to November 30 (St. Andrew’s Day) and is the beginning of the liturgical year. In many Eastern churches, the Nativity Fast is a similar period of penance and preparation that occurs during the 40 days before Christmas. The date when the season was first observed is uncertain. Bishop Perpetuus of Tours (461–490) established a fast before Christmas that began on November 11 (St. Martin’s Day), and the Council of Tours (567) mentioned an Advent season.
