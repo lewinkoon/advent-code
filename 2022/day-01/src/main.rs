@@ -1,7 +1,7 @@
 use std::fs;
 
 fn main() {
-    let input = fs::read_to_string("./src/input.txt").expect("File could not be read");
+    let input = fs::read_to_string("./input.txt").expect("File could not be read");
 
     // total calories for each elf
     let mut list = vec![];
