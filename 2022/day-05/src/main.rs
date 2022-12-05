@@ -1,10 +1,10 @@
 use itertools::Itertools;
 use std::fs;
 
-const STACKS: usize = 3;
+const STACKS: usize = 9;
 
 pub fn main() {
-    let input = fs::read_to_string("./test.txt").expect("File not read");
+    let input = fs::read_to_string("./input.txt").expect("File not read");
     let (boxes, moves) = input.split_once("\n\n").unwrap();
     let mut stack_one: [Vec<char>; STACKS] = Default::default();
     let (mut stack_two, mut swp): ([Vec<char>; STACKS], [char; 64]) =
@@ -29,17 +29,16 @@ pub fn main() {
             .map(|x| x.to_digit(10).unwrap())
             .collect_tuple()
             .unwrap();
-        
 
         for _ in 0..n {
             let tmp = stack_one[a as usize - 1].pop().unwrap();
             stack_one[b as usize - 1].push(tmp);
         }
-        
+
         let len = stack_two[a as usize - 1].len();
         let swp = &mut swp[..n as usize];
 
-        swp.copy_from_slice(&stack_two[a as usize - 1][len - n as usize .. len]);
+        swp.copy_from_slice(&stack_two[a as usize - 1][len - n as usize..len]);
         stack_two[a as usize - 1].truncate(len - n as usize);
         stack_two[b as usize - 1].extend(swp.iter());
     });
