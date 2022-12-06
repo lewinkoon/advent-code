@@ -1,5 +1,5 @@
 use itertools::Itertools;
-use std::fs;
+use std::{fs, usize};
 
 const STACKS: usize = 9;
 
@@ -24,9 +24,10 @@ pub fn main() {
 
     moves.lines().for_each(|l| {
         let (n, a, b) = l
-            .chars()
-            .filter(|c| c.is_numeric())
-            .map(|x| x.to_digit(10).unwrap())
+            .split_whitespace()
+            .skip(1)
+            .step_by(2)
+            .map(|c| c.parse().unwrap())
             .collect_tuple()
             .unwrap();
 
