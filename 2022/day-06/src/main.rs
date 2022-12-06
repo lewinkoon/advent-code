@@ -11,7 +11,7 @@ fn main() {
         .collect_vec()
         .windows(BUFF)
         .enumerate()
-        .filter(|(_, w)| w.into_iter().all_unique())
+        .filter(|(_, w)| w.iter().all_unique())
         .map(|(i, _)| i + BUFF )
         .next().unwrap();
 
