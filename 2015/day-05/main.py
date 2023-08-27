@@ -1,3 +1,6 @@
+import re
+
+
 def countVowels(str):
     vowels = "aeiou"
     res = sum(str.count(vowel) for vowel in vowels)
@@ -6,9 +9,9 @@ def countVowels(str):
 
 def countDuplicates(str):
     for i in range(len(str) - 1):
-        if str[i] == str[i+1]:
+        if str[i] == str[i + 1]:
             return True
-    
+
     return False
 
 
@@ -21,6 +24,16 @@ def checkSubtrings(str):
     return True
 
 
+def repeatingPairs(str):
+    pattern = r"(\w\w)(?=.*\1)"
+    return bool(re.search(pattern, str))
+
+
+def letterBetween(str):
+    pattern = r"(\w)(\w)\1"
+    return bool(re.search(pattern, str))
+
+
 def p1():
     with open("input.txt", "r") as file:
         data = file.readlines()
@@ -28,12 +41,10 @@ def p1():
     output = 0
 
     for string in data:
-        print(string)
         a = countVowels(string)
         b = countDuplicates(string)
         c = checkSubtrings(string)
 
-        print(a, b, c)
         if a and b and c:
             output += 1
 
@@ -42,11 +53,20 @@ def p1():
 
 def p2():
     with open("input.txt", "r") as file:
-        data = file.read().rstrip()
+        data = file.readlines()
 
-    # print("Part two:", output)
+    output = 0
+
+    for string in data:
+        a = repeatingPairs(string)
+        b = letterBetween(string)
+
+        if a and b:
+            output += 1
+
+    print("Part two:", output)
 
 
 if __name__ == "__main__":
     p1()
-    # p2()
+    p2()
