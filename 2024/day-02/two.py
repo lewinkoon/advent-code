@@ -6,11 +6,12 @@ def check(list):
             return True
     return False
 
-
 reports = 0
 with open(file_path, 'r') as file:
     for line in file:
         levels = [int(x) for x in line.split()]
-        if check(levels):
+        filtered = [levels[:i] + levels[i + 1:] for i in range(len(levels))]
+        cond = [check(i) for i in filtered]
+        if any(cond):
             reports += 1
     print(reports)
