@@ -1,0 +1,5 @@
+one:
+    python3 one.py
+
+two:
+    python3 two.py
